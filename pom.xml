@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.jugan</groupId>
+    <artifactId>ListenUserDevice</artifactId>
+    <version>1.0.0</version>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/io.socket/socket.io-client -->
+        <dependency>
+            <groupId>io.socket</groupId>
+            <artifactId>socket.io-client</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <!--自动生成get set访问器-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.18</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- 转换JSON使用 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.8</version>
+        </dependency>
+
+        <!--解析json数据-->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.2</version>
+        </dependency>
+
+        <!-- netty-all -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.32.Final</version>
+        </dependency>
+
+    </dependencies>
+</project>
