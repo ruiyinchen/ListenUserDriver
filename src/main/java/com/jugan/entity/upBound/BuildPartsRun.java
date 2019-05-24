@@ -4,8 +4,8 @@ import com.jugan.entity.Common.InfoTime;
 import lombok.Data;
 
 /**
- * 建筑消防设施部件运行状态
- * 共40个字节
+ * 建筑消防设施部件运行状态<p/>
+ * 共 40 个字节,不包括时间<p/>
  * 编号 < 2 >
  * @Author CL
  * @Date 2019/3/26-11:39

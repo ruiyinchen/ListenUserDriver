@@ -1,14 +1,14 @@
-package com.jugan.entity.upBound;
+package com.jugan.entity.down;
 
 import com.jugan.entity.Common.InfoTime;
 import lombok.Data;
 
 /**
- * 建筑消防设施系统状态<br/>
- * 共 4 字节,不包括时间<p/>
- * 编号 < 1 >
+ * 读建筑消防设施系统状态<p/>
+ * 共 4 个字节,不包括时间<p/>
+ * 编号 < 61 >
  * @Author CL
- * @Date 2019/3/26-10:33
+ * @Date 2019/5/24-15:45
  */
 @Data
 public class BuildSystem extends InfoTime{

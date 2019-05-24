@@ -1,12 +1,12 @@
-package com.jugan.entity.upBound;
+package com.jugan.entity.down;
 
 import com.jugan.entity.Common.InfoTime;
 import lombok.Data;
 
 /**
  * 用户信息传输装置运行状态<p/>
- * 共 1 个字节,不包括时间<p/>
- * 编号< 21 >
+ * 共 1个字节,不包括时间<p/>
+ * 编号< 81 >
  * @Author CL
  * @Date 2019/3/25-17:10
  */

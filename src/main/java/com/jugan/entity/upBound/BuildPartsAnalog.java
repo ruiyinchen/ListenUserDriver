@@ -4,14 +4,14 @@ import com.jugan.entity.Common.InfoTime;
 import lombok.Data;
 
 /**
- * 建筑消防设施部件模拟量值
- * 共十个字节
+ * 建筑消防设施部件模拟量值<p/>
+ * 共 10 个字节,不包括时间<p/>
  * 编号 < 3 >
  * @Author CL
  * @Date 2019/5/24-12:02
  */
 @Data
-public class BuildAnalog  extends InfoTime{
+public class BuildPartsAnalog extends InfoTime{
     /**
      * 系统类型标志
      * (1个字节)

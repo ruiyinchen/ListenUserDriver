@@ -4,8 +4,8 @@ import com.jugan.entity.Common.InfoTime;
 import lombok.Data;
 
 /**
- * 建筑消防设施操作信息
- * 共4个字节
+ * 建筑消防设施操作信息<p/>
+ * 共 4 个字节,不包括时间<p/>
  * 编号 < 4 >
  * @Author CL
  * @Date 2019/5/24-13:47

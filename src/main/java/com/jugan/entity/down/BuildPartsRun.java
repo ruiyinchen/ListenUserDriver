@@ -1,17 +1,17 @@
-package com.jugan.entity.upBound;
+package com.jugan.entity.down;
 
 import com.jugan.entity.Common.InfoTime;
 import lombok.Data;
 
 /**
- * 建筑消防设施系统状态<br/>
- * 共 4 字节,不包括时间<p/>
- * 编号 < 1 >
+ * 建筑消防设施部件运行状态<p/>
+ * 共 40 个字节,不包括时间<p/>
+ * 编号 < 62 >
  * @Author CL
- * @Date 2019/3/26-10:33
+ * @Date 2019/3/26-11:39
  */
 @Data
-public class BuildSystem extends InfoTime{
+public class BuildPartsRun extends InfoTime{
     /**
      * 系统类型标志
      * (1个字节)
@@ -22,8 +22,16 @@ public class BuildSystem extends InfoTime{
      * (1个字节)
      */
     private int systemAddress;
-
-    /*以下部分为系统状态占 2 个字节*/
+    /**
+     * 部件类型
+     * (1个字节)
+     */
+    private int partsType;
+    /**
+     * 部件地址
+     * (四个字节)
+     */
+    private String partsAddress;
     /**
      * 运行状态
      * (1 正常, 0 测试)
@@ -65,43 +73,50 @@ public class BuildSystem extends InfoTime{
      */
     private int delayed;
     /**
-     * 主电源
+     * 电源
      * (1 故障, 0 正常)
      */
-    private int mps;
-    /**
-     * 备用电源
-     * (1 故障, 0 正常)
-     */
-    private int eps;
-    /**
-     * 总线
-     * (1 故障, 0 正常)
-     */
-    private int mainLine;
-    /**
-     * 手动或自动
-     * (1 手动, 0 自动)
-     */
-    private int manualOrAutomatic;
-    /**
-     * 配置
-     * (1 改变, 0 无变化)
-     */
-    private int configure;
-    /**
-     * 复位
-     * (1 复位, 0 正常)
-     */
-    private int reset;
+    private int powerSupply;
     /**
      * 预留0
      */
     private int reserve0;
+
     /**
      * 预留1
      */
     private int reserve1;
 
-    /*以上部分为系统状态占 2 个字节*/
+    /**
+     * 预留2
+     */
+    private int reserve2;
+
+    /**
+     * 预留3
+     */
+    private int reserve3;
+
+    /**
+     * 预留4
+     */
+    private int reserve4;
+
+    /**
+     * 预留5
+     */
+    private int reserve5;
+
+    /**
+     * 预留6
+     */
+    private int reserve6;
+
+    /**
+     * 部件说明
+     * (31个字节)
+     */
+    private String partsExplain;
+
+
 }

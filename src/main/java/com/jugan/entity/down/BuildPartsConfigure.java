@@ -1,4 +1,4 @@
-package com.jugan.entity.upBound;
+package com.jugan.entity.down;
 
 import com.jugan.entity.Common.InfoTime;
 import lombok.Data;
@@ -6,7 +6,7 @@ import lombok.Data;
 /**
  * 建筑消防设施部件配置情况<p/>
  * 共 38 个字节,不包括时间<p/>
- * 编号< 7 >
+ * 编号< 67 >
  * @Author CL
  * @Date 2019/5/24-14:40
  */

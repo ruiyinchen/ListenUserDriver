@@ -1,4 +1,4 @@
-package com.jugan.entity.upBound;
+package com.jugan.entity.down;
 
 import com.jugan.entity.Common.InfoTime;
 import lombok.Data;
@@ -6,7 +6,7 @@ import lombok.Data;
 /**
  * 用户信息传输装置操作信息<p/>
  * 共 2 个字节,不包括时间<p/>
- * 编号< 24 >
+ * 编号< 84 >
  * @Author CL
  * @Date 2019/5/24-15:12
  */
