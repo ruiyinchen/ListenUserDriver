@@ -5,6 +5,7 @@ import lombok.Data;
 /**
  * 建筑消防设施系统状态
  * 共4个字节
+ * 编号 < 1 >
  * @Author CL
  * @Date 2019/3/26-10:33
  */

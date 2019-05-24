@@ -5,6 +5,7 @@ import lombok.Data;
 /**
  * 建筑消防设施部件模拟量值
  * 共十个字节
+ * 编号 < 3 >
  * @Author CL
  * @Date 2019/5/24-12:02
  */
