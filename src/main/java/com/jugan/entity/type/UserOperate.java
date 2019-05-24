@@ -1,28 +1,17 @@
-package com.jugan.entity.upBound;
+package com.jugan.entity.type;
 
 import com.jugan.entity.Common.InfoTime;
 import lombok.Data;
 
 /**
- * 建筑消防设施操作信息<p/>
- * 共 4 个字节,不包括时间<p/>
- * 编号 < 4 >
+ * 用户信息传输装置操作信息<p/>
+ * 共 2 个字节,不包括时间<p/>
+ * 编号< 24 >
  * @Author CL
- * @Date 2019/5/24-13:47
+ * @Date 2019/5/24-15:12
  */
 @Data
-public class BuildOperate extends InfoTime{
-    /**
-     * 系统类型标志
-     * (1个字节)
-     */
-    private int systemType;
-    /**
-     * 系统地址
-     * (1个字节)
-     */
-    private int systemAddress;
-
+public class UserOperate extends InfoTime{
     /*以下部分占一个字节*/
     /**
      * 复位
@@ -55,10 +44,10 @@ public class BuildOperate extends InfoTime{
     private int selfCheck;
 
     /**
-     * 确认
-     * (1 确认, 0 无操作)
+     * 查岗
+     * (1 应答, 0 无操作)
      */
-    private int validation;
+    private int inspectTheSentries;
 
     /**
      * 测试

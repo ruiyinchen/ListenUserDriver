@@ -1,4 +1,4 @@
-package com.jugan.entity.down;
+package com.jugan.entity.type;
 
 import com.jugan.entity.Common.InfoTime;
 import lombok.Data;
@@ -13,7 +13,7 @@ import lombok.Data;
 @Data
 public class InspectTheSentriesCommand extends InfoTime{
     /**
-     * 查岗应答超时设定时间
+     * 查岗应答超时设定时间<p/>
      * (1 个字节)
      */
     private int inspectTheSentries;

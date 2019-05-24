@@ -2,9 +2,9 @@ package com.jugan.analysis;
 
 
 import com.jugan.entity.Info;
-import com.jugan.entity.upBound.BuildPartsRun;
-import com.jugan.entity.upBound.BuildSystem;
-import com.jugan.entity.upBound.UserRun;
+import com.jugan.entity.type.BuildPartsRun;
+import com.jugan.entity.type.BuildSystem;
+import com.jugan.entity.type.UserRun;
 import com.jugan.tools.Convert;
 import com.jugan.tools.Utilty;
 
@@ -57,7 +57,7 @@ public class InfoType {
                 //添加到infos中
                 List<BuildSystem> buildSystems = new ArrayList<>();
                 buildSystems.add(system);
-                infos.setBuildSystems(buildSystems);
+                infos.setUpBuildSystems(buildSystems);
 
                 //System.out.println("上传建筑消防设施系统状态(上行):" + buildSystemTime);
 
@@ -98,7 +98,7 @@ public class InfoType {
                 //添加到infos中
                 List<BuildPartsRun> buildPartList =new ArrayList<>();
                 buildPartList.add(parts);
-                infos.setBuildParts(buildPartList);
+                infos.setUpBuildPartRuns(buildPartList);
                 break;
             case 21://上传用户信息传输装置运行状态(上行)
                 int[] userFun = Convert.toBinaryString(buf[++k]);
@@ -118,7 +118,7 @@ public class InfoType {
                 //添加到Info
                 List<UserRun> userFunctions = new ArrayList<>();
                 userFunctions.add(userFunction);
-                infos.setUserFunctions(userFunctions);
+                infos.setUpUserRuns(userFunctions);
                 break;
             case 28://上传用户信息传输装置系统时间(上行)
                 String userSystemTime = InfoType.byteToDate(InfoType.establishTimeByte(buf,6));

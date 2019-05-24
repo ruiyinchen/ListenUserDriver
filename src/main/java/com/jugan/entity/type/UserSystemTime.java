@@ -1,4 +1,4 @@
-package com.jugan.entity.upBound;
+package com.jugan.entity.type;
 
 import com.jugan.entity.Common.InfoTime;
 
