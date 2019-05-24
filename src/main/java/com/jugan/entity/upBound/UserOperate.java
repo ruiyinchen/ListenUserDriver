@@ -11,7 +11,7 @@ import lombok.Data;
  * @Date 2019/5/24-15:12
  */
 @Data
-public class Useroperate extends InfoTime{
+public class UserOperate extends InfoTime{
     /*以下部分占一个字节*/
     /**
      * 复位
