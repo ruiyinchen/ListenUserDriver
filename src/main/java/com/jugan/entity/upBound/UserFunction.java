@@ -1,9 +1,11 @@
-package com.jugan.entity.type;
+package com.jugan.entity.upBound;
 
 import lombok.Data;
 
 /**
  * 用户信息传输装置运行状态
+ * 共 1个字节
+ * 编号< 21 >
  * @Author CL
  * @Date 2019/3/25-17:10
  */

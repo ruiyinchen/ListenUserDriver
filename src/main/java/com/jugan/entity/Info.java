@@ -1,8 +1,8 @@
 package com.jugan.entity;
 
-import com.jugan.entity.type.BuildParts;
-import com.jugan.entity.type.BuildSystem;
-import com.jugan.entity.type.UserFunction;
+import com.jugan.entity.upBound.BuildParts;
+import com.jugan.entity.upBound.BuildSystem;
+import com.jugan.entity.upBound.UserFunction;
 import lombok.Data;
 
 import java.util.List;

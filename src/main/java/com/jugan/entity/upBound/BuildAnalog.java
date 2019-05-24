@@ -1,4 +1,4 @@
-package com.jugan.entity.type;
+package com.jugan.entity.upBound;
 
 import lombok.Data;
 
