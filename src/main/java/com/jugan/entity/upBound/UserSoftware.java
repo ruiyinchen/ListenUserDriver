@@ -1,5 +1,6 @@
 package com.jugan.entity.upBound;
 
+import com.jugan.entity.Common.InfoTime;
 import lombok.Data;
 
 /**
@@ -10,7 +11,7 @@ import lombok.Data;
  * @Date 2019/5/24-15:18
  */
 @Data
-public class UserSoftware {
+public class UserSoftware extends InfoTime{
     /**
      * 主要版本
      * (1个字节)

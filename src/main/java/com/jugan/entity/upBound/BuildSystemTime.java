@@ -1,5 +1,7 @@
 package com.jugan.entity.upBound;
 
+import com.jugan.entity.Common.InfoTime;
+
 /**
  * 建筑消防设施系统时间
  * 共  个字节
@@ -7,5 +9,5 @@ package com.jugan.entity.upBound;
  * @Author CL
  * @Date 2019/5/24-14:46
  */
-public class BuildSystemTime {
+public class BuildSystemTime extends InfoTime{
 }

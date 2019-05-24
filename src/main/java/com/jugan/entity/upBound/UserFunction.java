@@ -1,5 +1,6 @@
 package com.jugan.entity.upBound;
 
+import com.jugan.entity.Common.InfoTime;
 import lombok.Data;
 
 /**
@@ -10,7 +11,7 @@ import lombok.Data;
  * @Date 2019/3/25-17:10
  */
 @Data
-public class UserFunction {
+public class UserFunction extends InfoTime{
 
     /**
      * 监视状态
@@ -45,8 +46,5 @@ public class UserFunction {
      */
     private int reserve;
 
-    /**
-     * 时间
-     */
-    private String date;
+
 }

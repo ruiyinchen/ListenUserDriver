@@ -1,5 +1,6 @@
 package com.jugan.entity.upBound;
 
+import com.jugan.entity.Common.InfoTime;
 import lombok.Data;
 
 /**
@@ -10,7 +11,7 @@ import lombok.Data;
  * @Date 2019/5/24-12:02
  */
 @Data
-public class BuildAnalog {
+public class BuildAnalog  extends InfoTime{
     /**
      * 系统类型标志
      * (1个字节)
