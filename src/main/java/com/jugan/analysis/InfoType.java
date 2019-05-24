@@ -2,9 +2,9 @@ package com.jugan.analysis;
 
 
 import com.jugan.entity.Info;
-import com.jugan.entity.upBound.BuildParts;
+import com.jugan.entity.upBound.BuildPartsRun;
 import com.jugan.entity.upBound.BuildSystem;
-import com.jugan.entity.upBound.UserFunction;
+import com.jugan.entity.upBound.UserRun;
 import com.jugan.tools.Convert;
 import com.jugan.tools.Utilty;
 
@@ -53,7 +53,7 @@ public class InfoType {
                 system.setFunctionType(buildSys[15]);
                 //解析时间
                 String buildSystemTime = InfoType.byteToDate(InfoType.establishTimeByte(buf,6));
-                system.setDate(buildSystemTime);
+                system.setTime(buildSystemTime);
                 //添加到infos中
                 List<BuildSystem> buildSystems = new ArrayList<>();
                 buildSystems.add(system);
@@ -63,7 +63,7 @@ public class InfoType {
 
                 break;
             case 2://上传建筑消防设施部件运行状态(共占46个字节,信息体占40个字节,时间占6个字节)
-                BuildParts parts = new BuildParts();
+                BuildPartsRun parts = new BuildPartsRun();
                 parts.setSystemType(buf[++k]);
                 parts.setSystemAddress(buf[++k]);
                 parts.setPartsType(buf[++k]);
@@ -94,15 +94,15 @@ public class InfoType {
 
                 //解析时间
                 String buildPartsTime = InfoType.byteToDate(InfoType.establishTimeByte(buf,6));
-                parts.setDate(buildPartsTime);
+                parts.setTime(buildPartsTime);
                 //添加到infos中
-                List<BuildParts> buildPartList =new ArrayList<>();
+                List<BuildPartsRun> buildPartList =new ArrayList<>();
                 buildPartList.add(parts);
                 infos.setBuildParts(buildPartList);
                 break;
             case 21://上传用户信息传输装置运行状态(上行)
                 int[] userFun = Convert.toBinaryString(buf[++k]);
-                UserFunction userFunction = new UserFunction();
+                UserRun userFunction = new UserRun();
                 userFunction.setReserve(userFun[0]);
                 userFunction.setLine(userFun[1]);
                 userFunction.setCommunication(userFun[2]);
@@ -113,10 +113,10 @@ public class InfoType {
                 userFunction.setMonitor(userFun[7]);
                 //解析时间
                 String userFunTime = InfoType.byteToDate(InfoType.establishTimeByte(buf,6));
-                userFunction.setDate(userFunTime);
+                userFunction.setTime(userFunTime);
                // System.out.println("上传用户信息传输装置运行状态(上行):" + userFunTime);
                 //添加到Info
-                List<UserFunction> userFunctions = new ArrayList<>();
+                List<UserRun> userFunctions = new ArrayList<>();
                 userFunctions.add(userFunction);
                 infos.setUserFunctions(userFunctions);
                 break;

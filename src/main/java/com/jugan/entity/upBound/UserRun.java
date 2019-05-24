@@ -11,7 +11,7 @@ import lombok.Data;
  * @Date 2019/3/25-17:10
  */
 @Data
-public class UserFunction extends InfoTime{
+public class UserRun extends InfoTime{
 
     /**
      * 监视状态

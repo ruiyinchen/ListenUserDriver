@@ -11,7 +11,7 @@ import lombok.Data;
  * @Date 2019/3/26-11:39
  */
 @Data
-public class BuildParts extends InfoTime{
+public class BuildPartsRun extends InfoTime{
     /**
      * 系统类型标志
      * (1个字节)

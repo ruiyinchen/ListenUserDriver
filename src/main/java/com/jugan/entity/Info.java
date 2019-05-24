@@ -1,8 +1,8 @@
 package com.jugan.entity;
 
-import com.jugan.entity.upBound.BuildParts;
+import com.jugan.entity.upBound.BuildPartsRun;
 import com.jugan.entity.upBound.BuildSystem;
-import com.jugan.entity.upBound.UserFunction;
+import com.jugan.entity.upBound.UserRun;
 import lombok.Data;
 
 import java.util.List;
@@ -25,9 +25,9 @@ public class Info {
     private int command;//命令(1个字节)
     private int infoType;//信息对象类型
     private int infoNum;//信息对象数目
-    private List<UserFunction> userFunctions;
+    private List<UserRun> userFunctions;
     private List<BuildSystem> buildSystems;
-    private List<BuildParts> buildParts;
+    private List<BuildPartsRun> buildParts;
 
     private int crc;//校验和(1个字节)
     private int end0;//结束符(1个字节)
