@@ -3,6 +3,8 @@ package com.jugan.entity.type;
 import lombok.Data;
 
 /**
+ * 建筑消防设施部件运行状态
+ * 共40个字节
  * @Author CL
  * @Date 2019/3/26-11:39
  */
