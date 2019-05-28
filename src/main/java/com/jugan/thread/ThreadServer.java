@@ -53,7 +53,7 @@ public class ThreadServer {
         public void run() {
 
             try {
-                System.out.println("Accept from: " + socket.getRemoteSocketAddress());
+                System.out.print("Accept from: " + socket.getRemoteSocketAddress());
                 InputStream inputStream = socket.getInputStream();//获取InputStream对象
 
                 int count = 0;//获取字节流长度
@@ -61,7 +61,7 @@ public class ThreadServer {
                 // 如果对方发送了1000个字节给你，也许分成3批到达，这你就要调用3次available()方法才能将数据总数全部得到
                 while (count == 0)
                     count = inputStream.available();
-                System.out.println("count值:" + count);
+                System.out.println("\t\tcount值:" + count);
 
 
                 byte[] buf = new byte[count];//创建数组

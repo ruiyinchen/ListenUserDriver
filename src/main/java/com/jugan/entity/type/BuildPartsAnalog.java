@@ -37,7 +37,7 @@ public class BuildPartsAnalog extends InfoTime{
      * 模拟量类型
      * (一个字节)
      */
-    private String analogType;
+    private int analogType;
 
     /**
      * 模拟量值

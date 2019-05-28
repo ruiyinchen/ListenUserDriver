@@ -6,6 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 /**
+ * 整个数据包信息
  * @Author CL
  * @Date 2019/3/25-15:32
  */
@@ -39,7 +40,7 @@ public class Info {
     /*信息对象*/
     /*上行*/
     /** 建筑消防设施操作信息  */
-    private List<BuildOperate> upBuildOprates;
+    private List<BuildOperate> upBuildOperates;
     /** 建筑消防设施部件模拟量值  */
     private List<BuildPartsAnalog> upBuildPartsAnalogs;
     /** 建筑消防设施部件配置情况  */

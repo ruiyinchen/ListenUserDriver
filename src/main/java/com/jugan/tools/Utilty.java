@@ -39,6 +39,19 @@ public class Utilty {
     }
 
     /**
+     * 数值转正负数
+     *
+     * @param num 数值
+     * @param len 长度
+     * @return 值
+     */
+    public static int num2Hex(int num,int len) {
+        if(((num>>(len*8-1)) & 0x01) == 0x01)
+            return (num - (0x01<<(len*8)));
+        return num;
+    }
+
+    /**
      * int转byte[]
      * 该方法将一个int类型的数据转换为byte[]形式，因为int为32bit，而byte为8bit所以在进行类型转换时，知会获取低8位，
      * 丢弃高24位。通过位移的方式，将32bit的数据转换成4个8bit的数据。注意 &0xff，在这当中，&0xff简单理解为一把剪刀，
