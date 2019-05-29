@@ -1,7 +1,12 @@
 package com.jugan.analysis;
 
+import com.jugan.TestDemo;
 import com.jugan.entity.Info;
+import com.jugan.entity.type.*;
 import com.jugan.tools.Utilty;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 解析数据类
@@ -113,17 +118,60 @@ public class AnalysisData {
             dataInfo[i] = buf[++k];//k=28...
         //System.out.println(Utilty.parseByte2HexStr(dataInfo));
         /*信息体*/
-        int kk = -1;
-        for (int i =0;i < infoNum;i++){//根据信息对象数目循环进行解析
-            byte[] newByte = new byte[infoLength];
-            for (int j = 0;j < newByte.length;j++){
-                newByte[j] = dataInfo[++kk];
-            }
-            //System.out.println(Utilty.parseByte2HexStr(newByte));
-            //根据数据单元类型分别进行解析
-            InfoType.infoType(infoType,newByte,infos);
+        switch (infoType){
+            case 1://上传建筑消防设施系统状态(共占10个字节,信息体占4个字节,时间占6个字节)
+                List<BuildSystem> buildSystems = Resolve.getResolve().buildSystem(infoNum,infoLength,dataInfo);
+                infos.setBuildSystems(buildSystems);
+                break;
+            case 2://上传建筑消防设施部件运行状态(共占46个字节,信息体占40个字节,时间占6个字节)
+                List<BuildPartsRun> buildPartList = Resolve.getResolve().buildPartsRun(infoNum,infoLength,dataInfo);
+                infos.setBuildPartRuns(buildPartList);
+                break;
+            case 3://上传建筑消防设施部件模拟量值(共16 个字节,信息体 10个字节,时间6个字节)
+                List<BuildPartsAnalog> upAnalogList = Resolve.getResolve().buildPartsAnalog(infoNum,infoLength,dataInfo);
+                infos.setBuildPartsAnalogs(upAnalogList);
+                break;
+            case 4://上传建筑消防设施操作信息(共10个字节,信息体4个字节,时间6个字节)
+                List<BuildOperate> operateList = Resolve.getResolve().buildOperate(infoNum,infoLength,dataInfo);
+                infos.setBuildOperates(operateList);
+                break;
+            case 5://上传建筑消防设施软件版本(共10个字节,信息体4个字节,时间6个字节)
+                List<BuildSoftware> softwareList = Resolve.getResolve().buildSoftware(infoNum,infoLength,dataInfo);
+                infos.setBuildSoftwares(softwareList);
+                break;
+            case 6://上传建筑消防设施系统配置情况(共n+9,信息体n+3个字节,时间6个字节)
+                List<BuildSystemConfigure> systemConfigureList = Resolve.getResolve().buildSystemConfigure(infoNum,infoLength,dataInfo);
+                infos.setBuildSystemConfigures(systemConfigureList);
+                break;
+            case 7://上传建筑消防设施部件配置情况(共44个字节,信息体38个字节,时间6个字节)
+                List<BuildPartsConfigure> partsConfigureList = Resolve.getResolve().buildPartsConfigure(infoNum,infoLength,dataInfo);
+                infos.setBuildPartsConfigures(partsConfigureList);
+                break;
+            case 8://上传建筑消防设施系统时间(时间6个字节)
+                List<BuildSystemTime> systemTimeList = Resolve.getResolve().buildSystemTime(infoNum,infoLength,dataInfo);
+                infos.setBuildSystemTimes(systemTimeList);
+                break;
+            case 21://上传用户信息传输装置运行状态(共7个字节,信息体1个字节,时间6个字节)
+                List<UserRun> userFuns = Resolve.getResolve().userFun(infoNum,infoLength,dataInfo);
+                infos.setUserRuns(userFuns);
+                break;
+            case 24://上传用户信息传输装置操作信息(共8个字节,信息体2个字节,时间6个字节)
+                List<UserOperate> userOperateList = Resolve.getResolve().userOperate(infoNum,infoLength,dataInfo);
+                infos.setUserOperates(userOperateList);
+                break;
+            case 25://上传用户信息传输装置软件版本(共8个字节,信息体2个字节,时间6个字节)
+                List<UserSoftware> userSoftwareList = Resolve.getResolve().userSoftware(infoNum,infoLength,dataInfo);
+                infos.setUserSoftwares(userSoftwareList);
+                break;
+            case 26://上传用户信息传输装置配置情况(共n+7个字节,信息体n+1个字节,时间6个字节)
+                List<UserConfigure> userConfigureList = Resolve.getResolve().userConfigure(infoNum,infoLength, dataInfo);
+                infos.setUserConfigures(userConfigureList);
+                break;
+            case 28://上传用户信息传输装置系统时间(共6个字节,时间6个字节)
+                List<UserSystemTime> userSystemTimeList = Resolve.getResolve().userSystemTime(infoNum,infoLength,dataInfo);
+                infos.setUserSystemTimes(userSystemTimeList);
+                break;
         }
-
 
 
         /*校验和*/

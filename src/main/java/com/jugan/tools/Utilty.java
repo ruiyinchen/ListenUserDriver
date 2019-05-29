@@ -289,5 +289,89 @@ public class Utilty {
         }
         return result;
     }
+    /**
+     * 创建自定义长度byte数组
+     * @param buf 数组
+     * @param len 长度
+     * @return
+     */
+    public static byte[] establishTimeByte(byte[] buf,int len){
+        int k = -1;
+        if (buf == null) return null;
+        byte[] bytes = new byte[len];
+        for (int i = 0;i < bytes.length;i++)
+            bytes[i] = buf[++k];
 
+        return bytes;
+    }
+
+
+    /**
+     * 低字节转换
+     * @param buf 之前数组
+     * @param length 数组长度
+     * @return低字节数组
+     */
+    public static byte[] toLowByte(byte[] buf,int length){
+        if (buf == null) return null;
+        int k = -1;
+        byte[] bytes = new byte[length];
+        int h = 1;//低字节传输
+        for (int i = bytes.length;i > 0;i--) {
+            bytes[h] = buf[++k];
+            h -= 1;
+        }
+        return bytes;
+    }
+
+
+    /**
+     * 低字节输出
+     * @param bufs 原数组
+     * @return
+     */
+    public static byte[] toLowOut(byte[] bufs){
+        byte[] buf = new byte[bufs.length];
+        int h = bufs.length -1 ;
+        for (int i = 0;i < buf.length;i++){
+            buf[i] = bufs[h];
+            h = h - 1;
+        }
+        return buf;
+    }
+    /**
+     * 将数组转成地址(按低字节输出)
+     * 格式 [127.0.0.1]
+     * @param buf byte[]
+     * @return String
+     */
+    public static String toAddress(byte[] buf){
+        StringBuffer sb = new StringBuffer();
+        for (int i = buf.length-1;i>=0;i--){
+            String str = String.valueOf(Integer.parseInt(Utilty.parseByte2HexStr(new byte[]{buf[i]}),16));
+            str = str + ".";
+
+            sb.append(str);
+        }
+        String str = sb.toString();
+        return str.substring(0,str.length()-1);
+    }
+
+    /**
+     * 将byte数组反转再转成string
+     * @param buf 时间byte数组
+     * @return String
+     */
+    public static String byteToDate(byte[] buf){
+        //System.out.println("时间数组:"+Utilty.parseByte2HexStr(buf));
+        StringBuffer sb = new StringBuffer();
+        for (int i = buf.length-1;i>=0;i--){
+            String str = String.valueOf(Integer.parseInt(Utilty.parseByte2HexStr(new byte[]{buf[i]}),16));
+            if (str.length() == 1)
+                str = "0"+ str;
+            sb.append(str);
+        }
+        return sb.toString();
+
+    }
 }

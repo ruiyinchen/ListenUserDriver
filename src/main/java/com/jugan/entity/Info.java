@@ -40,31 +40,31 @@ public class Info {
     /*信息对象*/
     /*上行*/
     /** 建筑消防设施操作信息  */
-    private List<BuildOperate> upBuildOperates;
+    private List<BuildOperate> buildOperates;
     /** 建筑消防设施部件模拟量值  */
-    private List<BuildPartsAnalog> upBuildPartsAnalogs;
+    private List<BuildPartsAnalog> buildPartsAnalogs;
     /** 建筑消防设施部件配置情况  */
-    private List<BuildPartsConfigure> upBuildPartsConfigures;
+    private List<BuildPartsConfigure> buildPartsConfigures;
     /** 建筑消防设施部件运行状态  */
-    private List<BuildPartsRun> upBuildPartRuns;
+    private List<BuildPartsRun> buildPartRuns;
     /** 建筑消防设施软件版本  */
-    private List<BuildSoftware> upBuildSoftwares;
+    private List<BuildSoftware> buildSoftwares;
     /** 建筑消防设施系统状态  */
-    private List<BuildSystem> upBuildSystems;
+    private List<BuildSystem> buildSystems;
     /** 建筑消防设施系统配置情况  */
-    private List<BuildSystemConfigure> upBuildSystemConfigures;
+    private List<BuildSystemConfigure> buildSystemConfigures;
     /** 建筑消防设施系统时间  */
-    private List<BuildSystemTime> upBuildSystemTimes;
+    private List<BuildSystemTime> buildSystemTimes;
     /** 用户信息传输装置配置情况  */
-    private List<UserConfigure> upUserConfigures;
+    private List<UserConfigure> userConfigures;
     /** 用户信息传输装置操作信息  */
-    private List<UserOperate> upUserOperates;
+    private List<UserOperate> userOperates;
     /** 用户信息传输装置运行状态  */
-    private List<UserRun> upUserRuns;
+    private List<UserRun> userRuns;
     /** 用户信息传输装置软件版本  */
-    private List<UserSoftware> upUserSoftwares;
+    private List<UserSoftware> userSoftwares;
     /** 用户信息传输装置系统时间  */
-    private List<UserSystemTime> upUserSystemTimes;
+    private List<UserSystemTime> userSystemTimes;
 
     /*下行*/
     /** 建筑消防设施操作信息  */
