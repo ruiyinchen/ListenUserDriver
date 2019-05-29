@@ -45,6 +45,7 @@ public class Resolve {
                 newByte[j] = dataInfo[++kk];
             }
             int k = -1;
+            //封装BuildSystem对象中
             BuildSystem system = new BuildSystem();
             system.setSystemType(newByte[++k]);//系统类型标志
             system.setSystemAddress(newByte[++k]);//系统地址
@@ -70,7 +71,7 @@ public class Resolve {
             String buildSystemTime = Utilty.byteToDate(Utilty.establishTimeByte(newByte,6,k));
             system.setTime(buildSystemTime);
             System.out.println("上传建筑消防设施系统状态(上行):" + buildSystemTime);
-            //添加到infos中
+            //添加到集合中
             buildSystems.add(system);
         }
         return buildSystems;
@@ -93,6 +94,7 @@ public class Resolve {
                 newByte[j] = dataInfo[++kk];
             }
             int k = -1;
+            //封装BuildPartsRun对象
             BuildPartsRun parts = new BuildPartsRun();
             parts.setSystemType(newByte[++k]);//系统类型标志
             parts.setSystemAddress(newByte[++k]);//系统地址
@@ -124,7 +126,7 @@ public class Resolve {
             //解析时间
             String buildPartsTime = Utilty.byteToDate(Utilty.establishTimeByte(newByte,6,k));
             parts.setTime(buildPartsTime);
-            //添加到infos中
+            //添加到集合中
             buildPartList.add(parts);
 
             System.out.println("传建筑消防设施部件运行状态"+buildPartsTime);
@@ -149,6 +151,7 @@ public class Resolve {
                 newByte[j] = dataInfo[++kk];
             }
             int k = -1;
+            //封装BuildPartsAnalog对象
             BuildPartsAnalog analog = new BuildPartsAnalog();
             analog.setSystemType(newByte[++k]);//系统状态
             analog.setSystemAddress(newByte[++k]);//系统地址
@@ -164,7 +167,7 @@ public class Resolve {
             //解析时间
             String buildPartsAnalogTime = Utilty.byteToDate(Utilty.establishTimeByte(newByte,6,k));
             analog.setTime(buildPartsAnalogTime);
-            //添加到infos中
+            //添加到集合中
             upAnalogList.add(analog);
         }
         return upAnalogList;
@@ -187,6 +190,7 @@ public class Resolve {
                 newByte[j] = dataInfo[++kk];
             }
             int k = -1;
+            //封装BuildOperate对象
             BuildOperate operate = new BuildOperate();
             operate.setSystemType(newByte[++k]);//系统类型
             operate.setSystemAddress(newByte[++k]);//系统地址
@@ -201,11 +205,11 @@ public class Resolve {
             operate.setValidation(operateValues[2]);
             operate.setTest(operateValues[1]);
             operate.setObligate(operateValues[0]);
-
             operate.setOperator(newByte[++k]);
+            //时间
             String buildOperateTime = Utilty.byteToDate(Utilty.establishTimeByte (newByte,6,k));
             operate.setTime(buildOperateTime);
-            //添加到infos中
+            //添加到集合中
             operateList.add(operate);
         }
 
@@ -229,6 +233,7 @@ public class Resolve {
                 newByte[j] = dataInfo[++kk];
             }
             int k = -1;
+            //封装BuildSoftware对象
             BuildSoftware software = new BuildSoftware();
             software.setSystemType(newByte[++k]);
             software.setSystemAddress(newByte[++k]);
@@ -236,7 +241,7 @@ public class Resolve {
             software.setSecondary(newByte[++k]);
             String buildSoftwareTime = Utilty.byteToDate(Utilty.establishTimeByte(newByte,6,k));
             software.setTime(buildSoftwareTime);
-            //添加到infos中
+            //添加到集合中
             softwareList.add(software);
         }
         return softwareList;
@@ -261,6 +266,7 @@ public class Resolve {
                 newByte[j] = dataInfo[++kk];
             }
             int k = -1;
+            //封装BuildSystemConfigure对象
             BuildSystemConfigure systemConfigure = new BuildSystemConfigure();
             systemConfigure.setSystemType(newByte[++k]);
             systemConfigure.setSystemAddress(newByte[++k]);
@@ -269,7 +275,7 @@ public class Resolve {
             systemConfigure.setExplanation(Utilty.parseByte2HexStr(Utilty.establishTimeByte(newByte,explanation,k)));
             String buildSystemConfigureTime = Utilty.byteToDate(Utilty.establishTimeByte(newByte,6,k));
             systemConfigure.setTime(buildSystemConfigureTime);
-            //添加到infos中
+            //添加到集合中
             systemConfigureList.add(systemConfigure);
         }
 
@@ -294,6 +300,7 @@ public class Resolve {
                 newByte[j] = dataInfo[++kk];
             }
             int k = -1;
+            //封装BuildPartsConfigure对象
             BuildPartsConfigure partsConfigure = new BuildPartsConfigure();
             partsConfigure.setSystemType(newByte[++k]);
             partsConfigure.setSystemAddress(newByte[++k]);
@@ -303,7 +310,7 @@ public class Resolve {
             partsConfigure.setExplanation(Utilty.parseByte2HexStr(Utilty.establishTimeByte(newByte,31,k)));
             String buildPartsConfigureTime = Utilty.byteToDate(Utilty.establishTimeByte(newByte,6,k));
             partsConfigure.setTime(buildPartsConfigureTime);
-            //添加到infos中
+            //添加到集合中
             partsConfigureList.add(partsConfigure);
         }
         return partsConfigureList;
@@ -326,10 +333,11 @@ public class Resolve {
             for (int j = 0; j < newByte.length; j++) {
                 newByte[j] = dataInfo[++kk];
             }
-            int k = -1;
+            //封装BuildSystemTime对象
             BuildSystemTime systemTime = new BuildSystemTime();
-            String buildSystemTimes = Utilty.byteToDate(Utilty.establishTimeByte(newByte,6,k));
+            String buildSystemTimes = Utilty.byteToDate(Utilty.establishTimeByte(newByte,6,-1));
             systemTime.setTime(buildSystemTimes);
+            //添加到集合中
             systemTimeList.add(systemTime);
         }
         return systemTimeList;
@@ -353,8 +361,9 @@ public class Resolve {
                 newByte[j] = dataInfo[++kk];
             }
             int k = -1;
-            int[] userFun = Convert.toBinaryString(newByte[++k]);
+            //封装UserRun对象
             UserRun userFunction = new UserRun();
+            int[] userFun = Convert.toBinaryString(newByte[++k]);
             userFunction.setReserve(userFun[0]);
             userFunction.setLine(userFun[1]);
             userFunction.setCommunication(userFun[2]);
@@ -367,7 +376,7 @@ public class Resolve {
             String userFunTime = Utilty.byteToDate(Utilty.establishTimeByte(newByte,6,k));
             userFunction.setTime(userFunTime);
             //System.out.println("上传用户信息传输装置运行状态(上行):" + userFunTime);
-            //添加到Infos
+            //添加到集合中
             userFunctions.add(userFunction);
         }
         return userFunctions;
@@ -389,6 +398,7 @@ public class Resolve {
             for (int j = 0;j < newByte.length;j++)
                 newByte[j] = dataInfo[++kk];
             int k = -1;
+            //封装UserOperate对象
             UserOperate userOperate = new UserOperate();
             int[] operates = Convert.toBinaryString(newByte[++k]);
             userOperate.setReset(operates[7]);
@@ -403,7 +413,7 @@ public class Resolve {
             //解析时间
             String userOperateTime = Utilty.byteToDate(Utilty.establishTimeByte(newByte,6,k));
             userOperate.setTime(userOperateTime);
-            //添加到Infos
+            //添加到集合中
             userOperateList.add(userOperate);
         }
        return userOperateList;
@@ -428,13 +438,14 @@ public class Resolve {
             for (int j = 0; j < newByte.length; j++)
                 newByte[j] = dataInfo[++kk];
             int k = -1;
+            //封装UserSoftware对象
             UserSoftware userSoftware = new UserSoftware();
             userSoftware.setMainVersion(newByte[++k]);
             userSoftware.setSecondary(newByte[++k]);
             //解析时间
             String userSoftwareTime = Utilty.byteToDate(Utilty.establishTimeByte(newByte, 6,k));
             userSoftware.setTime(userSoftwareTime);
-            //添加到Infos
+            //添加到集合中
             userSoftwareList.add(userSoftware);
         }
         return userSoftwareList;
@@ -457,6 +468,7 @@ public class Resolve {
             for (int j = 0; j < newByte.length; j++)
                 newByte[j] = dataInfo[++kk];
             int k = -1;
+            //封装UserConfigure对象
             UserConfigure userConfigure = new UserConfigure();
             int userExplanationLen = newByte[++k];
             userConfigure.setExplanationLen(userExplanationLen);
@@ -465,7 +477,7 @@ public class Resolve {
             //解析时间
             String userConfigureTime = Utilty.byteToDate(Utilty.establishTimeByte(newByte, 6,k));
             userConfigure.setTime(userConfigureTime);
-            //添加到infos中
+            //添加到集合中
             userConfigureList.add(userConfigure);
         }
         return userConfigureList;
@@ -489,8 +501,7 @@ public class Resolve {
             for (int j = 0;j < newByte.length;j++){
                 newByte[j] = dataInfo[++kk];
             }
-            int k = -1;
-            String userSystemTime = Utilty.byteToDate(Utilty.establishTimeByte(newByte,6,k));
+            String userSystemTime = Utilty.byteToDate(Utilty.establishTimeByte(newByte,6,-1));
             UserSystemTime userTime = new UserSystemTime();
             userTime.setTime(userSystemTime);
             //System.out.println("上传用户信息传输装置系统时间(上行):" + userSystemTime);
@@ -516,14 +527,14 @@ public class Resolve {
                 newByte[j] = dataInfo[++kk];
             }
             int k = -1;
+            //封装UserInit对象
             UserInit userInit = new UserInit();
-
             userInit.setObligate(newByte[++k]);//转十进制
             String userInitTime = Utilty.byteToDate(Utilty.establishTimeByte(newByte,6,k));
             userInit.setTime(userInitTime);
+            //添加到集合中
             userInitList.add(userInit);
         }
-
         return userInitList;
     }
     /**
@@ -543,10 +554,12 @@ public class Resolve {
                 newByte[j] = dataInfo[++kk];
             }
             int k = -1;
+            //封装InspectTheSentriesCommand对象
             InspectTheSentriesCommand command = new InspectTheSentriesCommand();
             command.setInspectTheSentries(newByte[++k]);
             String commandTime = Utilty.byteToDate(Utilty.establishTimeByte(newByte,6,k));
             command.setTime(commandTime);
+            //添加到集合中
             commandList.add(command);
         }
         return commandList;
@@ -568,9 +581,8 @@ public class Resolve {
             for (int j = 0; j < newByte.length; j++) {
                 newByte[j] = dataInfo[++kk];
             }
-            int k = -1;
             UserSyncClock clock = new UserSyncClock();
-            String clockTime = Utilty.byteToDate(Utilty.establishTimeByte(newByte,6,k));
+            String clockTime = Utilty.byteToDate(Utilty.establishTimeByte(newByte,6,-1));
             clock.setTime(clockTime);
             userSyncClockList.add(clock);
         }
