@@ -14,6 +14,7 @@ import lombok.Data;
 public class InspectTheSentriesCommand extends InfoTime{
     /**
      * 查岗应答超时设定时间<p/>
+     * 十进制<br/>
      * (1 个字节)
      */
     private int inspectTheSentries;

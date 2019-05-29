@@ -171,6 +171,74 @@ public class AnalysisData {
                 List<UserSystemTime> userSystemTimeList = Resolve.getResolve().userSystemTime(infoNum,infoLength,dataInfo);
                 infos.setUserSystemTimes(userSystemTimeList);
                 break;
+
+                /*下行部分*/
+            case 61://读建筑消防设施系统状态(共占10个字节,信息体占4个字节,时间占6个字节)
+                List<BuildSystem> downBuildSystems = Resolve.getResolve().buildSystem(infoNum,infoLength,dataInfo);
+                infos.setBuildSystems(downBuildSystems);
+                break;
+            case 62://读建筑消防设施部件运行状态(共占46个字节,信息体占40个字节,时间占6个字节)
+                List<BuildPartsRun> downBuildPartList = Resolve.getResolve().buildPartsRun(infoNum,infoLength,dataInfo);
+                infos.setBuildPartRuns(downBuildPartList);
+                break;
+            case 63://读建筑消防设施部件模拟量值(共16 个字节,信息体 10个字节,时间6个字节)
+                List<BuildPartsAnalog> downAnalogList = Resolve.getResolve().buildPartsAnalog(infoNum,infoLength,dataInfo);
+                infos.setBuildPartsAnalogs(downAnalogList);
+                break;
+            case 64://读建筑消防设施操作信息(共10个字节,信息体4个字节,时间6个字节)
+                List<BuildOperate> downOperateList = Resolve.getResolve().buildOperate(infoNum,infoLength,dataInfo);
+                infos.setBuildOperates(downOperateList);
+                break;
+            case 65://读建筑消防设施软件版本(共10个字节,信息体4个字节,时间6个字节)
+                List<BuildSoftware> downSoftwareList = Resolve.getResolve().buildSoftware(infoNum,infoLength,dataInfo);
+                infos.setBuildSoftwares(downSoftwareList);
+                break;
+            case 66://读建筑消防设施系统配置情况(共n+9,信息体n+3个字节,时间6个字节)
+                List<BuildSystemConfigure> downSystemConfigureList = Resolve.getResolve().buildSystemConfigure(infoNum,infoLength,dataInfo);
+                infos.setBuildSystemConfigures(downSystemConfigureList);
+                break;
+            case 67://读建筑消防设施部件配置情况(共44个字节,信息体38个字节,时间6个字节)
+                List<BuildPartsConfigure> downPartsConfigureList = Resolve.getResolve().buildPartsConfigure(infoNum,infoLength,dataInfo);
+                infos.setBuildPartsConfigures(downPartsConfigureList);
+                break;
+            case 68://读建筑消防设施系统时间(时间6个字节)
+                List<BuildSystemTime> downSystemTimeList = Resolve.getResolve().buildSystemTime(infoNum,infoLength,dataInfo);
+                infos.setBuildSystemTimes(downSystemTimeList);
+                break;
+            case 81://读用户信息传输装置运行状态(共7个字节,信息体1个字节,时间6个字节)
+                List<UserRun> downUserFuns = Resolve.getResolve().userFun(infoNum,infoLength,dataInfo);
+                infos.setUserRuns(downUserFuns);
+                break;
+            case 84://读用户信息传输装置操作信息(共8个字节,信息体2个字节,时间6个字节)
+                List<UserOperate> downUserOperateList = Resolve.getResolve().userOperate(infoNum,infoLength,dataInfo);
+                infos.setUserOperates(downUserOperateList);
+                break;
+            case 85://读用户信息传输装置软件版本(共8个字节,信息体2个字节,时间6个字节)
+                List<UserSoftware> downUserSoftwareList = Resolve.getResolve().userSoftware(infoNum,infoLength,dataInfo);
+                infos.setUserSoftwares(downUserSoftwareList);
+                break;
+            case 86://读用户信息传输装置配置情况(共n+7个字节,信息体n+1个字节,时间6个字节)
+                List<UserConfigure> downUserConfigureList = Resolve.getResolve().userConfigure(infoNum,infoLength, dataInfo);
+                infos.setUserConfigures(downUserConfigureList);
+                break;
+            case 88://读用户信息传输装置系统时间(共6个字节,时间6个字节)
+                List<UserSystemTime> downUserSystemTimeList = Resolve.getResolve().userSystemTime(infoNum,infoLength,dataInfo);
+                infos.setUserSystemTimes(downUserSystemTimeList);
+                break;
+            case 89://初始化用户信息传输装置(共7个字节,信息体1个字节,时间6个字节)
+                List<UserInit> userInitList = Resolve.getResolve().userInit(infoNum,infoLength,dataInfo);
+                infos.setUserInits(userInitList);
+                break;
+            case 90://同步用户信息传输装置时钟(共6个字节,时间6个字节)
+                List<UserSyncClock> userSyncClockList = Resolve.getResolve().clock(infoNum,infoLength,dataInfo);
+                infos.setUserSyncClocks(userSyncClockList);
+                break;
+            case 91://查岗命令(共7个字节,信息体1个字节,时间6个字节)
+                List<InspectTheSentriesCommand> commandList = Resolve.getResolve().command(infoNum,infoLength,dataInfo);
+                infos.setSentriescommands(commandList);
+                break;
+            default:
+                break;
         }
 
 

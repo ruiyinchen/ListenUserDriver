@@ -492,9 +492,85 @@ public class Resolve {
             UserSystemTime userTime = new UserSystemTime();
             userTime.setTime(userSystemTime);
             //System.out.println("上传用户信息传输装置系统时间(上行):" + userSystemTime);
-            //添加到infos中
             userSystemTimeList.add(userTime);
         }
         return userSystemTimeList;
+    }
+
+    /**
+     * 初始化用户信息传输装置<br/>
+     * 单个数据共7个字节,信息体1个字节,时间6个字节
+     * @param infoNum 数据单元信息对象数目
+     * @param infoLength 数据类型单个对象的长度
+     * @param dataInfo 应用数据单元信息体总数组
+     * @return List<UserInit>集合
+     */
+    public List<UserInit> userInit(int infoNum,int infoLength,byte[] dataInfo){
+        int kk = -1;
+        List<UserInit> userInitList = new ArrayList<>();
+        for (int i =0;i < infoNum;i++) {//根据信息对象数目循环进行解析
+            byte[] newByte = new byte[infoLength];
+            for (int j = 0; j < newByte.length; j++) {
+                newByte[j] = dataInfo[++kk];
+            }
+            int k = -1;
+            UserInit userInit = new UserInit();
+
+            userInit.setObligate(newByte[++k]);//转十进制
+            String userInitTime = Utilty.byteToDate(Utilty.establishTimeByte(newByte,6));
+            userInit.setTime(userInitTime);
+            userInitList.add(userInit);
+        }
+
+        return userInitList;
+    }
+    /**
+     * 查岗命令<br/>
+     * 单个数据共7个字节,信息体1个字节,时间6个字节
+     * @param infoNum 数据单元信息对象数目
+     * @param infoLength 数据类型单个对象的长度
+     * @param dataInfo 应用数据单元信息体总数组
+     * @return List<InspectTheSentriesCommand>集合
+     */
+    public List<InspectTheSentriesCommand> command(int infoNum,int infoLength,byte[] dataInfo) {
+        int kk = -1;
+        List<InspectTheSentriesCommand> commandList = new ArrayList<>();
+        for (int i = 0; i < infoNum; i++) {//根据信息对象数目循环进行解析
+            byte[] newByte = new byte[infoLength];
+            for (int j = 0; j < newByte.length; j++) {
+                newByte[j] = dataInfo[++kk];
+            }
+            int k = -1;
+            InspectTheSentriesCommand command = new InspectTheSentriesCommand();
+            command.setInspectTheSentries(newByte[++k]);
+            String commandTime = Utilty.byteToDate(Utilty.establishTimeByte(newByte,6));
+            command.setTime(commandTime);
+            commandList.add(command);
+        }
+        return commandList;
+    }
+
+    /**
+     * 同步用户信息传输装置时钟<br/>
+     * 单个数据共6个字节,时间6个字节
+     * @param infoNum 数据单元信息对象数目
+     * @param infoLength 数据类型单个对象的长度
+     * @param dataInfo 应用数据单元信息体总数组
+     * @return List<UserSyncClock>集合
+     */
+    public List<UserSyncClock> clock(int infoNum,int infoLength,byte[] dataInfo) {
+        int kk = -1;
+        List<UserSyncClock> userSyncClockList = new ArrayList<>();
+        for (int i = 0; i < infoNum; i++) {//根据信息对象数目循环进行解析
+            byte[] newByte = new byte[infoLength];
+            for (int j = 0; j < newByte.length; j++) {
+                newByte[j] = dataInfo[++kk];
+            }
+            UserSyncClock clock = new UserSyncClock();
+            String clockTime = Utilty.byteToDate(Utilty.establishTimeByte(newByte,6));
+            clock.setTime(clockTime);
+            userSyncClockList.add(clock);
+        }
+        return userSyncClockList;
     }
 }

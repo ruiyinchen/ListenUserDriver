@@ -1,5 +1,6 @@
 package com.jugan.entity.type;
 
+import com.jugan.entity.Common.InfoTime;
 import lombok.Data;
 
 /**
@@ -10,9 +11,10 @@ import lombok.Data;
  * @Date 2019/5/24-15:56
  */
 @Data
-public class UserInit {
+public class UserInit extends InfoTime{
     /**
-     * 预留
+     * 预留<br/>
+     * 十进制<br/>
      * (1 个字节)
      */
     private int obligate;

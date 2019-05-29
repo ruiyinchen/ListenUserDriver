@@ -38,7 +38,6 @@ public class Info {
     private int infoNum;
 
     /*信息对象*/
-    /*上行*/
     /** 建筑消防设施操作信息  */
     private List<BuildOperate> buildOperates;
     /** 建筑消防设施部件模拟量值  */
@@ -65,40 +64,12 @@ public class Info {
     private List<UserSoftware> userSoftwares;
     /** 用户信息传输装置系统时间  */
     private List<UserSystemTime> userSystemTimes;
-
-    /*下行*/
-    /** 建筑消防设施操作信息  */
-    private List<BuildOperate> downBuildOperates;
-    /** 建筑消防设施部件模拟量值  */
-    private List<BuildPartsAnalog> downBuildPartsAnalogs;
-    /** 建筑消防设施部件配置情况 */
-    private List<BuildPartsConfigure> downBuildPartsConfigures;
-    /** 建筑消防设施部件运行状态  */
-    private List<BuildPartsRun> downBuildPartRuns;
-    /** 建筑消防设施软件版本  */
-    private List<BuildSoftware> downBuildSoftwares;
-    /** 建筑消防设施系统状态  */
-    private List<BuildSystem> downBuildSystems;
-    /** 建筑消防设施系统配置情况  */
-    private List<BuildSystemConfigure> downBuildSystemConfigures;
-    /** 建筑消防设施系统时间  */
-    private List<BuildSystemTime> downBuildSystemTimes;
     /** 查岗命令  */
-    private List<InspectTheSentriesCommand> downCommands;
-    /** 用户信息传输装置配置情况  */
-    private List<UserConfigure> downUserConfigures;
+    private List<InspectTheSentriesCommand> sentriescommands;
     /** 初始化用户信息装置  */
-    private List<UserInit> downUserInits;
-    /** 用户信息传输装置操作信息  */
-    private List<UserOperate> downUserOperates;
-    /** 用户信息传输装置运行状态  */
-    private List<UserRun> downUserRuns;
-    /** 用户信息传输装置软件版本 */
-    private List<UserSoftware> downUserSoftwares;
+    private List<UserInit> userInits;
     /** 同步用户信息传输装置时钟  */
-    private List<UserSyncClock> downUserSyncClocks;
-    /** 用户信息传输装置系统时间  */
-    private List<UserSystemTime> downUserSystemTimes;
+    private List<UserSyncClock> userSyncClocks;
 
     /** 校验和<p/> (1个字节)  */
     private int crc;
