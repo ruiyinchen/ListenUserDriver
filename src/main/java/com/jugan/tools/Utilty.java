@@ -295,8 +295,7 @@ public class Utilty {
      * @param len 长度
      * @return
      */
-    public static byte[] establishTimeByte(byte[] buf,int len){
-        int k = -1;
+    public static byte[] establishTimeByte(byte[] buf,int len,int k){
         if (buf == null) return null;
         byte[] bytes = new byte[len];
         for (int i = 0;i < bytes.length;i++)
@@ -312,9 +311,8 @@ public class Utilty {
      * @param length 数组长度
      * @return低字节数组
      */
-    public static byte[] toLowByte(byte[] buf,int length){
+    public static byte[] toLowByte(byte[] buf,int length,int k){
         if (buf == null) return null;
-        int k = -1;
         byte[] bytes = new byte[length];
         int h = 1;//低字节传输
         for (int i = bytes.length;i > 0;i--) {
