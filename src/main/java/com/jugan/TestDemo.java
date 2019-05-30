@@ -19,15 +19,15 @@ public class TestDemo {
     public static void main(String[] args) {
 
 
-        Info info = AnalysisData.getInfo().analysis(clock());
+        Info info = AnalysisData.getInfo().analysis(userConfigure());
         System.out.println("系统时间:"+info.getTime());
 
 
-        //同步用户信息传输装置时钟
+       /* //同步用户信息传输装置时钟
         for (UserSyncClock time:info.getUserSyncClocks()){
             System.out.println("时间:"+time.getTime());
 
-        }
+        }*/
 
 
 
@@ -50,12 +50,12 @@ public class TestDemo {
         }*/
 
 
-       /* //上传用户信息传输装置配置情况
+        //上传用户信息传输装置配置情况
         for (UserConfigure configure :info.getUserConfigures()){
             System.out.print("系统配置说明:"+configure.getExplanation());
             System.out.println("\t\t\t时间:"+configure.getTime());
 
-        }*/
+        }
 
         /*//用户信息传输装置操作信息
         for (UserOperate operate:info.getUserOperates()){
@@ -197,7 +197,7 @@ public class TestDemo {
     }
 
     public static byte[] userConfigure(){
-        byte[] buf = {(byte)0x40,(byte)0x40,(byte)0xA2,(byte)0x00,(byte)0x01,(byte)0x01,(byte)0x3B,(byte)0x24,(byte)0x0A,(byte)0x1E,(byte)0x05,(byte)0x13,(byte)0xEE,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0xE9,(byte)0x03,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x08,(byte)0x00,(byte)0x02,(byte)0x1a,(byte)0x02,(byte)0x02,(byte)0x02,(byte)0x02,(byte)0x23,(byte)0x1B,(byte)0x0B,(byte)0x1E,(byte)0x05,(byte)0x13,(byte)0x02,(byte)0x02,(byte)0x02,(byte)0x23,(byte)0x1B,(byte)0x0B,(byte)0x1E,(byte)0x05,(byte)0x13,(byte)0xE3,(byte)0x23,(byte)0x23};
+        byte[] buf = {(byte)0x40,(byte)0x40,(byte)0xA2,(byte)0x00,(byte)0x01,(byte)0x01,(byte)0x3B,(byte)0x24,(byte)0x0A,(byte)0x1E,(byte)0x05,(byte)0x13,(byte)0xEE,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0xE9,(byte)0x03,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x00,(byte)0x08,(byte)0x00,(byte)0x02,(byte)0x1a,(byte)0x02,(byte)0x03,(byte)0x02,(byte)0x02,(byte)0x02,(byte)0x23,(byte)0x1B,(byte)0x0B,(byte)0x1E,(byte)0x05,(byte)0x13,(byte)0x03,(byte)0x02,(byte)0x02,(byte)0x02,(byte)0x23,(byte)0x1B,(byte)0x0B,(byte)0x1E,(byte)0x05,(byte)0x13,(byte)0xE3,(byte)0x23,(byte)0x23};
         return buf;
     }
 

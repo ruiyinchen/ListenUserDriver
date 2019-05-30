@@ -279,7 +279,7 @@ public class AnalysisData {
                 num = 10;
                 break;
             case 6://上传建筑消防设施系统配置情况(共n+9,信息体n+3个字节,时间6个字节)
-                num = 46;
+                num = 9;
                 break;
             case 7://上传建筑消防设施部件配置情况(共44个字节,信息体38个字节,时间6个字节)
                 num = 44;
@@ -342,7 +342,7 @@ public class AnalysisData {
                 num = 6;
                 break;
             case 89://初始化用户信息传输装置(共7个字节,信息体1个字节,时间6个字节)
-                num =7;
+                num = 7;
                 break;
             case 90://同步用户信息传输装置时钟(共6个字节,时间6个字节)
                 num = 6;
