@@ -25,7 +25,7 @@ public class TestDemo {
 
         //同步用户信息传输装置时钟
         for (UserSyncClock time:info.getUserSyncClocks()){
-            System.out.println("\t\t\t时间:"+time.getTime());
+            System.out.println("时间:"+time.getTime());
 
         }
 
@@ -45,7 +45,7 @@ public class TestDemo {
 
         /*//用户信息传输装置系统时间
         for (UserSystemTime time:info.getUserSystemTimes()){
-            System.out.println("\t\t\t时间:"+time.getTime());
+            System.out.println("时间:"+time.getTime());
 
         }*/
 
@@ -67,7 +67,7 @@ public class TestDemo {
 
         /*//建筑消防设施系统时间
         for (BuildSystemTime time:info.getBuildSystemTimes()){
-            System.out.println("\t\t\t时间:"+time.getTime());
+            System.out.println("时间:"+time.getTime());
 
         }*/
 
