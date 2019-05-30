@@ -473,7 +473,7 @@ public class Resolve {
             UserConfigure userConfigure = new UserConfigure();
             int userExplanationLen = newByte[++k];
             userConfigure.setExplanationLen(userExplanationLen);
-            userConfigure.setExplanation(Utilty.parseByte2HexStr(Utilty.establishTimeByte(newByte,1,k)));
+            userConfigure.setExplanation(Utilty.parseByte2HexStr(Utilty.establishTimeByte(newByte,userExplanationLen,k)));
             //解析时间
             String userConfigureTime = Utilty.byteToDate(Utilty.establishTimeByte(newByte, 6,userExplanationLen));
             userConfigure.setTime(userConfigureTime);
