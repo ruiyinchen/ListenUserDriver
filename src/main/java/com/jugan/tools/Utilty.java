@@ -293,6 +293,7 @@ public class Utilty {
      * 创建自定义长度byte数组
      * @param buf 数组
      * @param len 长度
+     * @param k 数组下标
      * @return
      */
     public static byte[] establishTimeByte(byte[] buf,int len,int k){
@@ -309,7 +310,8 @@ public class Utilty {
      * 低字节转换
      * @param buf 之前数组
      * @param length 数组长度
-     * @return低字节数组
+     * @param k 数组下标
+     * @return 低字节数组
      */
     public static byte[] toLowByte(byte[] buf,int length,int k){
         if (buf == null) return null;
