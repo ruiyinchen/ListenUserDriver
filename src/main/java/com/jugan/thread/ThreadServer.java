@@ -85,17 +85,17 @@ public class ThreadServer {
                 int crc = Integer.parseInt(Utilty.parseByte2HexStr(crcs),16);
                 //校验和进行比较,结果不一致则不解析数据
                 if (ss == crc ){
-                    System.out.print("--------> 校验结果一致,开始进行数据解析(๑•̀ㅂ•́)و✧ <--------");
+                    System.out.println("--------> 校验结果一致,开始进行数据解析(๑•̀ㅂ•́)و✧ <--------");
                     //解析数据
                     Info info = AnalysisData.getInfo().analysis(buf);
-                    System.out.println("\t\t\t系统时间:"+info.getTime());
+                    System.out.print("系统时间:"+info.getTime());
                     if (count == 38){
-                        for (UserSystemTime info1 :info.getUserSystemTimes()){
-                            System.out.println("用户系统时间:"+info1.getTime());
+                        for (UserSystemTime userSystemTime :info.getUserSystemTimes()){
+                            System.out.println("\t\t\t用户系统时间:"+userSystemTime.getTime());
                         }
                     }else {
                         for (UserRun userRun :info.getUserRuns()){
-                            System.out.println("火警:"+userRun.getFireAlarm()+"\t\t时间:"+userRun.getTime());
+                            System.out.println("\t\t\t火警:"+userRun.getFireAlarm()+"\t\t\t时间:"+userRun.getTime());
                         }
                     }
                     //封装json体(未完成)
@@ -103,7 +103,7 @@ public class ThreadServer {
                 }else {
                     System.out.println("--------> 校验结果不一致,不对数据进行解析(#_#) <--------");
                 }
-
+                System.out.println();
 
 
 

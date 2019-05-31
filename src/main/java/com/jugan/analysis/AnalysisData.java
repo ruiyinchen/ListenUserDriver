@@ -59,14 +59,15 @@ public class AnalysisData {
         byte[] times = new byte[6];
         for (int i = 0;i < times.length;i++)
             times[i] = buf[++k];//下标6-->11
-        StringBuffer sb = new StringBuffer();
+        String time = Utilty.parseByte2HexStr(times);
+       /* StringBuffer sb = new StringBuffer();
         for (int i = times.length-1;i>=0;i--){
             String str = String.valueOf(Integer.parseInt(Utilty.parseByte2HexStr(new byte[]{times[i]}),16));
             if (str.length() == 1)
                 str = "0"+ str;
             sb.append(str);
         }
-        String time = sb.toString();
+        String time = sb.toString();*/
         infos.setTime(time);
 
         //System.out.println("时间:"+time);

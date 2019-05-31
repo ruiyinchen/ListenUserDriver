@@ -7,11 +7,7 @@ package com.jugan.tools;
  */
 public class Convert {
 
-    /**
-     *
-     * @param num
-     * @return
-     */
+
     /**
      * 将数字转成bit,已char数组形式输出
      * @param num 数值
@@ -20,21 +16,17 @@ public class Convert {
      */
     public static int[] toBinaryString(int num,int digit){
         String ss = Integer.toBinaryString(num);//将十进制数转成字符串,例如n=5 ，s = "101"
-        System.out.println(ss);
+        //System.out.println(ss);
         for (int i = ss.length(); i < digit; i++)
             ss = '0' + ss;
-
         char[] chars = ss.toCharArray();//转换成char数组
-        for (int i =0;i<chars.length;i++)
-            System.out.print(chars[i] + " ");
-        System.out.println();
         int[] ints = new int[chars.length];
         //将char数组转成int数组
         for (int i = 0;i<ints.length;i++)
             ints[i] = Integer.parseInt(String.valueOf(chars[i]));
-        for (int i =0;i<ints.length;i++)
+       /* for (int i =0;i<ints.length;i++)
             System.out.print(ints[i]+" ");
-        System.out.println();
+        System.out.println();*/
         return ints;
     }
 
