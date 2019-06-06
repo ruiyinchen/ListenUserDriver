@@ -375,7 +375,7 @@ public class Resolve {
             //解析时间
             String userFunTime = Utilty.byteToDate(Utilty.establishTimeByte(newByte,6,k));
             userFunction.setTime(userFunTime);
-            //System.out.println("上传用户信息传输装置运行状态(上行):" + userFunTime);
+            System.out.println("(๑•̀ㅂ•́)و✧  用户信息传输装置运行状态时间:" + userFunTime+" (๑•̀ㅂ•́)و✧ ");
             //添加到集合中
             userFunctions.add(userFunction);
         }
@@ -504,7 +504,7 @@ public class Resolve {
             String userSystemTime = Utilty.byteToDate(Utilty.establishTimeByte(newByte,6,-1));
             UserSystemTime userTime = new UserSystemTime();
             userTime.setTime(userSystemTime);
-            //System.out.println("上传用户信息传输装置系统时间(上行):" + userSystemTime);
+            System.out.println("(๑•̀ㅂ•́)و✧  用户信息传输装置系统时间:" + userSystemTime+" (๑•̀ㅂ•́)و✧ ");
             userSystemTimeList.add(userTime);
         }
         return userSystemTimeList;

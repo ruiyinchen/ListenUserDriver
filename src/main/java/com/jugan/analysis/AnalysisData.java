@@ -1,11 +1,10 @@
 package com.jugan.analysis;
 
-import com.jugan.TestDemo;
 import com.jugan.entity.Info;
 import com.jugan.entity.type.*;
+import com.jugan.tools.ProjectUtil;
 import com.jugan.tools.Utilty;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,10 +15,10 @@ import java.util.List;
 public class AnalysisData {
 
 
-    private static AnalysisData info = new AnalysisData();
+    private static AnalysisData analysisData = new AnalysisData();
 
-    public static AnalysisData getInfo() {
-        return info;
+    public static AnalysisData getAnalysisData() {
+        return analysisData;
     }
     /**
      * 解析数据
@@ -105,12 +104,12 @@ public class AnalysisData {
         /*以上控制单元部分*/
 
         /*应用数据单元*/
-        int infoType = buf[++k];//数据单元类型
-        infos.setInfoType(infoType);
+        int infoType = buf[++k];//数据单元类型标志
+        infos.setInfoType(infoType);//k = 27
         int infoNum= buf[++k];//数据单元信息对象数目
-        infos.setInfoNum(infoNum);
+        infos.setInfoNum(infoNum);//k = 28
         //System.out.println("数据单元类型"+infoType+"\t\t数据单元信息对象数目:" + infoNum);
-        int infoLength = AnalysisData.getInfo().getLength(infoType);//获得数据类型单个对象的长度
+        int infoLength = ProjectUtil.getUtil().getLength(infoType);//获得数据类型单个对象的长度
         //System.out.println("数据类型单个对象的长度:" + infoLength);
 
        // System.out.println(k);
@@ -256,105 +255,5 @@ public class AnalysisData {
         return infos;
     }
 
-    /**
-     * 根据数据类型得到相应的数据长度
-     * @param infoType 数据单元类型
-     * @return
-     */
-    public int getLength(int infoType){
-        int num = 0;
-        switch (infoType){
-            case 1://上传建筑消防设施系统状态(共占10个字节,信息体占4个字节,时间占6个字节)
-                num = 10;
-                break;
-            case 2://上传建筑消防设施部件运行状态(共占46个字节,信息体占40个字节,时间占6个字节)
-                num = 46;
-                break;
-            case 3://上传建筑消防设施部件模拟量值(共16 个字节,信息体 10个字节,时间6个字节)
-                num = 16;
-                break;
-            case 4://上传建筑消防设施操作信息(共10个字节,信息体4个字节,时间6个字节)
-                num = 10;
-                break;
-            case 5://上传建筑消防设施软件版本(共10个字节,信息体4个字节,时间6个字节)
-                num = 10;
-                break;
-            case 6://上传建筑消防设施系统配置情况(共n+9,信息体n+3个字节,时间6个字节)
-                num = 9;
-                break;
-            case 7://上传建筑消防设施部件配置情况(共44个字节,信息体38个字节,时间6个字节)
-                num = 44;
-                break;
-            case 8://上传建筑消防设施系统时间(时间6个字节)
-                num = 6;
-                break;
-            case 21://上传用户信息传输装置运行状态(共7个字节,信息体1个字节,时间6个字节)
-                num = 7;
-                break;
-            case 24://上传用户信息传输装置操作信息(共8个字节,信息体2个字节,时间6个字节)
-                num = 8;
-                break;
-            case 25://上传用户信息传输装置软件版本(共8个字节,信息体2个字节,时间6个字节)
-                num = 8;
-                break;
-            case 26://上传用户信息传输装置配置情况(共n+7个字节,信息体n+1个字节,时间6个字节)
-                num = 7;
-                break;
-            case 28://上传用户信息传输装置系统时间(共6个字节,时间6个字节)
-                num = 6;
-                break;
-            case 61://读建筑消防设施系统状态(共占10个字节,信息体占4个字节,时间占6个字节)
-                num = 10;
-                break;
-            case 62://读建筑消防设施部件运行状态(共占46个字节,信息体占40个字节,时间占6个字节)
-                num = 46;
-                break;
-            case 63://读建筑消防设施部件模拟量值(共16 个字节,信息体 10个字节,时间6个字节)
-                num = 16;
-                break;
-            case 64://读建筑消防设施操作信息(共10个字节,信息体4个字节,时间6个字节)
-                num = 10;
-                break;
-            case 65://读建筑消防设施软件版本(共10个字节,信息体4个字节,时间6个字节)
-                num = 10;
-                break;
-            case 66://读建筑消防设施系统配置情况(共n+9,信息体n+3个字节,时间6个字节)
-                num = 9;//暂定为9
-                break;
-            case 67://读建筑消防设施部件配置情况(共44个字节,信息体38个字节,时间6个字节)
-                num = 44;
-                break;
-            case 68://读建筑消防设施系统时间(时间6个字节)
-                num = 6;
-                break;
-            case 81://读用户信息传输装置运行状态(共7个字节,信息体1个字节,时间6个字节)
-                num = 7;
-                break;
-            case 84://读用户信息传输装置操作信息(共8个字节,信息体2个字节,时间6个字节)
-                num = 8;
-                break;
-            case 85://读用户信息传输装置软件版本(共8个字节,信息体2个字节,时间6个字节)
-                num = 8;
-                break;
-            case 86://读用户信息传输装置配置情况(共n+7个字节,信息体n+1个字节,时间6个字节)
-                num = 7;//暂定为7
-                break;
-            case 88://读用户信息传输装置系统时间(共6个字节,时间6个字节)
-                num = 6;
-                break;
-            case 89://初始化用户信息传输装置(共7个字节,信息体1个字节,时间6个字节)
-                num = 7;
-                break;
-            case 90://同步用户信息传输装置时钟(共6个字节,时间6个字节)
-                num = 6;
-                break;
-            case 91://查岗命令(共7个字节,信息体1个字节,时间6个字节)
-                num = 7;
-                break;
-            default:
-                num = 0;//暂定为0
-                break;
-        }
-        return num;
-    }
+
 }

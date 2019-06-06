@@ -1,12 +1,8 @@
 package com.jugan.thread;
 
 import com.jugan.analysis.AnalysisData;
+import com.jugan.analysis.HandleHEX;
 import com.jugan.entity.Info;
-import com.jugan.entity.type.UserRun;
-import com.jugan.entity.type.UserSystemTime;
-import com.jugan.json.ConvertJson;
-import com.jugan.tools.Utilty;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -72,37 +68,13 @@ public class ThreadServer {
                 for (int i = 0 ;i < buf.length;i++)
                     System.out.print(buf[i] + " ");
                 System.out.println();
-                //验证检验和
-                //获得检验的数组
-                byte[] newCrcs = new byte[buf.length - 5];//数组长度为总长度减去头和尾四个字节再减去校验和一个字节
-                int num = 1;
-                for (int i = 0;i < newCrcs.length;i++)
-                    newCrcs[i] = buf[++num];
-                int ss = Utilty.sumCheck(newCrcs);//获得该byte数组的校验和
-                //System.out.println("\nss:"+ss);
-                //获取原数组的校验和
-                byte[] crcs = {buf[buf.length-3]};
-                int crc = Integer.parseInt(Utilty.parseByte2HexStr(crcs),16);
-                //校验和进行比较,结果不一致则不解析数据
-                if (ss == crc ){
-                    System.out.println("--------> 校验结果一致,开始进行数据解析(๑•̀ㅂ•́)و✧ <--------");
-                    //解析数据
-                    Info info = AnalysisData.getInfo().analysis(buf);
-                    System.out.print("系统时间:"+info.getTime());
-                    if (count == 38){
-                        for (UserSystemTime userSystemTime :info.getUserSystemTimes()){
-                            System.out.println("\t\t\t用户系统时间:"+userSystemTime.getTime());
-                        }
-                    }else {
-                        for (UserRun userRun :info.getUserRuns()){
-                            System.out.println("\t\t\t火警:"+userRun.getFireAlarm()+"\t\t\t时间:"+userRun.getTime());
-                        }
-                    }
-                    //封装json体(未完成)
-                    //ObjectNode node = ConvertJson.getJson().toJsonNode(info);
-                }else {
-                    System.out.println("--------> 校验结果不一致,不对数据进行解析(#_#) <--------");
-                }
+
+                byte[] bytes = HandleHEX.toHandle().toArray(buf);
+
+                //解析数据
+                Info info = AnalysisData.getAnalysisData().analysis(bytes);
+
+
                 System.out.println();
 
 

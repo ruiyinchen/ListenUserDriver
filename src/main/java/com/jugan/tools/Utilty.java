@@ -3,7 +3,6 @@ package com.jugan.tools;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Scanner;
 
 /**
  * 数据转换工具类

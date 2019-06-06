@@ -19,7 +19,7 @@ public class TestDemo {
     public static void main(String[] args) {
 
 
-        Info info = AnalysisData.getInfo().analysis(userConfigure());
+        Info info = AnalysisData.getAnalysisData().analysis(userConfigure());
         System.out.println("系统时间:"+info.getTime());
 
 
