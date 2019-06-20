@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 处理粘包,丢包等问题
+ * 处理粘包,缺包等问题
  * @Author CL
  * @Date 2019/6/4-9:20
  */
@@ -26,8 +26,6 @@ public class HandleHEX {
      * @return 处理后的数组
      */
     public byte[] toArray(byte[] buf){
-
-
         //原数组长度
         int bufLen = buf.length;
         /**
